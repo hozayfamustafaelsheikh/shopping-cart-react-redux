@@ -65,7 +65,7 @@ function Cart() {
                                 <div className="cart-item-image-name">
                                     {/* Cart table item image */}
                                     <div className="cart-item-image">
-                                        <img src="assets/img/item-01.jpg" alt="" srcSet="" />
+                                        <img src={require("../assets/img/item-01.jpg")} alt="" srcSet="" />
                                     </div>
                                     {/* End of Cart table item image */}
                                     {/* Cart table item name and price */}
@@ -78,7 +78,7 @@ function Cart() {
                                 {/* End of Cart table item image, name and price */}
                                 {/* Cart table item quantity field */}
                                 <div className="cart-item-qty">
-                                    <input type="text" name="" defaultValue="2" id="" />
+                                    <input type="text" name="qty" defaultValue="2" id="qty" />
                                 </div>
                                 {/* End of Cart table item quantity field */}
                                 {/* Cart table item total price (quantity × item unit price) */}
@@ -92,216 +92,8 @@ function Cart() {
                                     <input
                                         type="text"
                                         placeholder="Please, just a little bit spicy only."
-                                        name=""
-                                        id=""
-                                    />
-                                </div>
-                                {/* End of Cart table item details field  */}
-                                {/* Cart table item delete button  */}
-                                <div className="cart-item-delete">
-                                    <button>
-                                        <i className="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                {/* End of Cart table item delete button  */}
-                            </div>
-                            {/* End of Cart table item details field and delete button */}
-                        </div>
-                        {/* End of Cart table item */}
-
-                        {/* Cart table item */}
-                        <div className="cart-table-item">
-                            {/* Cart table item first line */}
-                            <div className="cart-table-item-data">
-                                {/* Cart table item image, name and price */}
-                                <div className="cart-item-image-name">
-                                    {/* Cart table item image */}
-                                    <div className="cart-item-image">
-                                        <img src="assets/img/item-01.jpg" alt="" srcSet="" />
-                                    </div>
-                                    {/* End of Cart table item image */}
-                                    {/* Cart table item name and price */}
-                                    <div className="cart-item-name-price">
-                                        <h1>Spicy seasoned seafood noodles</h1>
-                                        <p>$ 2.29</p>
-                                    </div>
-                                    {/* End of Cart table item name and price */}
-                                </div>
-                                {/* End of Cart table item image, name and price */}
-                                {/* Cart table item quantity field */}
-                                <div className="cart-item-qty">
-                                    <input type="text" name="" defaultValue="2" id="" />
-                                </div>
-                                {/* End of Cart table item quantity field */}
-                                {/* Cart table item total price (quantity × item unit price) */}
-                                <div className="cart-item-price">$ 4,58</div>
-                                {/* End of Cart table item total price (quantity × item unit price) */}
-                            </div>
-                            {/* Cart table item details field and delete button */}
-                            <div className="cart-table-item-details-delete">
-                                {/* Cart table item details field  */}
-                                <div className="cart-item-details">
-                                    <input
-                                        type="text"
-                                        placeholder="Please, just a little bit spicy only."
-                                        name=""
-                                        id=""
-                                    />
-                                </div>
-                                {/* End of Cart table item details field  */}
-                                {/* Cart table item delete button  */}
-                                <div className="cart-item-delete">
-                                    <button>
-                                        <i className="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                {/* End of Cart table item delete button  */}
-                            </div>
-                            {/* End of Cart table item details field and delete button */}
-                        </div>
-                        {/* End of Cart table item */}
-
-                        {/* Cart table item */}
-                        <div className="cart-table-item">
-                            {/* Cart table item first line */}
-                            <div className="cart-table-item-data">
-                                {/* Cart table item image, name and price */}
-                                <div className="cart-item-image-name">
-                                    {/* Cart table item image */}
-                                    <div className="cart-item-image">
-                                        <img src="assets/img/item-01.jpg" alt="" srcSet="" />
-                                    </div>
-                                    {/* End of Cart table item image */}
-                                    {/* Cart table item name and price */}
-                                    <div className="cart-item-name-price">
-                                        <h1>Spicy seasoned seafood noodles</h1>
-                                        <p>$ 2.29</p>
-                                    </div>
-                                    {/* End of Cart table item name and price */}
-                                </div>
-                                {/* End of Cart table item image, name and price */}
-                                {/* Cart table item quantity field */}
-                                <div className="cart-item-qty">
-                                    <input type="text" name="" defaultValue="2" id="" />
-                                </div>
-                                {/* End of Cart table item quantity field */}
-                                {/* Cart table item total price (quantity × item unit price) */}
-                                <div className="cart-item-price">$ 4,58</div>
-                                {/* End of Cart table item total price (quantity × item unit price) */}
-                            </div>
-                            {/* Cart table item details field and delete button */}
-                            <div className="cart-table-item-details-delete">
-                                {/* Cart table item details field  */}
-                                <div className="cart-item-details">
-                                    <input
-                                        type="text"
-                                        placeholder="Please, just a little bit spicy only."
-                                        name=""
-                                        id=""
-                                    />
-                                </div>
-                                {/* End of Cart table item details field  */}
-                                {/* Cart table item delete button  */}
-                                <div className="cart-item-delete">
-                                    <button>
-                                        <i className="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                {/* End of Cart table item delete button  */}
-                            </div>
-                            {/* End of Cart table item details field and delete button */}
-                        </div>
-                        {/* End of Cart table item */}
-
-                        {/* Cart table item */}
-                        <div className="cart-table-item">
-                            {/* Cart table item first line */}
-                            <div className="cart-table-item-data">
-                                {/* Cart table item image, name and price */}
-                                <div className="cart-item-image-name">
-                                    {/* Cart table item image */}
-                                    <div className="cart-item-image">
-                                        <img src="assets/img/item-01.jpg" alt="" srcSet="" />
-                                    </div>
-                                    {/* End of Cart table item image */}
-                                    {/* Cart table item name and price */}
-                                    <div className="cart-item-name-price">
-                                        <h1>Spicy seasoned seafood noodles</h1>
-                                        <p>$ 2.29</p>
-                                    </div>
-                                    {/* End of Cart table item name and price */}
-                                </div>
-                                {/* End of Cart table item image, name and price */}
-                                {/* Cart table item quantity field */}
-                                <div className="cart-item-qty">
-                                    <input type="text" name="" defaultValue="2" id="" />
-                                </div>
-                                {/* End of Cart table item quantity field */}
-                                {/* Cart table item total price (quantity × item unit price) */}
-                                <div className="cart-item-price">$ 4,58</div>
-                                {/* End of Cart table item total price (quantity × item unit price) */}
-                            </div>
-                            {/* Cart table item details field and delete button */}
-                            <div className="cart-table-item-details-delete">
-                                {/* Cart table item details field  */}
-                                <div className="cart-item-details">
-                                    <input
-                                        type="text"
-                                        placeholder="Please, just a little bit spicy only."
-                                        name=""
-                                        id=""
-                                    />
-                                </div>
-                                {/* End of Cart table item details field  */}
-                                {/* Cart table item delete button  */}
-                                <div className="cart-item-delete">
-                                    <button>
-                                        <i className="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                                {/* End of Cart table item delete button  */}
-                            </div>
-                            {/* End of Cart table item details field and delete button */}
-                        </div>
-                        {/* End of Cart table item */}
-
-                        {/* Cart table item */}
-                        <div className="cart-table-item">
-                            {/* Cart table item first line */}
-                            <div className="cart-table-item-data">
-                                {/* Cart table item image, name and price */}
-                                <div className="cart-item-image-name">
-                                    {/* Cart table item image */}
-                                    <div className="cart-item-image">
-                                        <img src="assets/img/item-01.jpg" alt="" srcSet="" />
-                                    </div>
-                                    {/* End of Cart table item image */}
-                                    {/* Cart table item name and price */}
-                                    <div className="cart-item-name-price">
-                                        <h1>Spicy seasoned seafood noodles</h1>
-                                        <p>$ 2.29</p>
-                                    </div>
-                                    {/* End of Cart table item name and price */}
-                                </div>
-                                {/* End of Cart table item image, name and price */}
-                                {/* Cart table item quantity field */}
-                                <div className="cart-item-qty">
-                                    <input type="text" name="" defaultValue="2" id="" />
-                                </div>
-                                {/* End of Cart table item quantity field */}
-                                {/* Cart table item total price (quantity × item unit price) */}
-                                <div className="cart-item-price">$ 4,58</div>
-                                {/* End of Cart table item total price (quantity × item unit price) */}
-                            </div>
-                            {/* Cart table item details field and delete button */}
-                            <div className="cart-table-item-details-delete">
-                                {/* Cart table item details field  */}
-                                <div className="cart-item-details">
-                                    <input
-                                        type="text"
-                                        placeholder="Please, just a little bit spicy only."
-                                        name=""
-                                        id=""
+                                        name="details"
+                                        id="details"
                                     />
                                 </div>
                                 {/* End of Cart table item details field  */}

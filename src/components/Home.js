@@ -1,38 +1,45 @@
 var items = [
     {
+        id: 1,
         category: "Hot Dishes",
         items: [
             {
+                id: 1,
                 name: "Spicy seasoned seafood noodles",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-01.jpg",
             },
             {
+                id: 2,
                 name: "Salted Pasta with mushroom sauce",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-02.jpg",
             },
             {
+                id: 3,
                 name: "Beef dumpling in hot and sour soup",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-03.jpg",
             },
             {
+                id: 4,
                 name: "Healthy noodle with spinach leaf",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-04.jpg",
             },
             {
+                id: 5,
                 name: "Hot spicy fried rice with omelet",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-05.jpg",
             },
             {
+                id: 6,
                 name: "Spicy instant noodle with special omelette",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
@@ -42,39 +49,46 @@ var items = [
 
     },
     {
+        id: 2,
         category: "Cold Dishes",
         items: [
             {
+                id: 1,
                 name: "Healthy noodle with spinach leaf",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-04.jpg",
             },
             {
+                id: 2,
                 name: "Salted Pasta with mushroom sauce",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-02.jpg",
             },
             {
+                id: 3,
                 name: "Spicy seasoned seafood noodles",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-01.jpg",
             },
             {
+                id: 4,
                 name: "Spicy instant noodle with special omelette",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-06.jpg",
             },
             {
+                id: 5,
                 name: "Beef dumpling in hot and sour soup",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-03.jpg",
             },
             {
+                id: 6,
                 name: "Hot spicy fried rice with omelet",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
@@ -84,39 +98,46 @@ var items = [
 
     },
     {
+        id: 3,
         category: "Soup",
         items: [
             {
+                id: 1,
                 name: "Hot spicy fried rice with omelet",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-05.jpg",
             },
             {
+                id: 2,
                 name: "Salted Pasta with mushroom sauce",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-02.jpg",
             },
             {
+                id: 3,
                 name: "Healthy noodle with spinach leaf",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-04.jpg",
             },
             {
+                id: 4,
                 name: "Spicy instant noodle with special omelette",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-06.jpg",
             },
             {
+                id: 5,
                 name: "Spicy seasoned seafood noodles",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
                 image: "item-01.jpg",
             },
             {
+                id: 6,
                 name: "Beef dumpling in hot and sour soup",
                 price: "$ 2.29",
                 avaliable: "20 Bowls available",
@@ -145,8 +166,8 @@ function Home() {
                             <i className="fa-solid fa-search"></i>
                             <input
                                 type="text"
-                                name=""
-                                id=""
+                                name="search"
+                                id="search"
                                 placeholder="Search for food, coffe, etc.."
                             />
                         </div>
@@ -164,8 +185,8 @@ function Home() {
 
                             {/* Home Page Tabs Header Item */}
                             {
-                                items.map(item => (
-                                    <li className="tab-item" data-tabname={item.category}>{item.category}</li>
+                                items.map((item, index) => (
+                                    <li key={item.id} className={"tab-item " + (index === 0 ? "active" : "") } data-tabname={item.id}>{item.category}</li>
                                 ))
                             }
                             {/* End of Home Page Tabs Header Item */}
@@ -178,8 +199,8 @@ function Home() {
                     <div className="tabs-body">
                         {/* Home Page Tab Body */}
                         {
-                            items.map(item_category => (
-                                <div class={"tab-body " + item_category.category} key={item_category.category}>
+                            items.map((item_category, category_index) => (
+                                <div className={"tab-body " + item_category.id + (category_index === 0 ? " active" : "")} key={item_category.id}>
                                     {/* Home Page Tabs Body Header */}
                                     <div className="tab-body-header">
                                         {/* Home Page Tabs Body Header Title */}
@@ -202,12 +223,11 @@ function Home() {
                                     <div className="items">
                                         {/* Home Page Item */}
                                         {
-                                            item_category.items.map(item => (
-
-                                                <div className="item" key={item.name}>
+                                            item_category.items.map((item, item_index) => (
+                                                <div className={"item " + (item_index === 0 ? " active" : "")} key={item.id}>
                                                     {/* Home Page Item Image */}
                                                     <div className="image">
-                                                        <img src={"../assets/img/" + item.image} alt="" />
+                                                        <img src={require("../assets/img/" + item.image)} alt="" />
                                                     </div>
                                                     {/* End of Home Page Item Image */}
                                                     {/* Home Page Item Details */}
