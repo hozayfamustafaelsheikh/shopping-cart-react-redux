@@ -12,6 +12,14 @@
   box-sizing: border-box;
 }
 
+.d-block {
+  display: block !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
 /* body */
 body {
   background-color: #252836;
@@ -148,7 +156,7 @@ body {
 .page {
   padding: 20px 30px;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .page::-webkit-scrollbar {
@@ -383,8 +391,13 @@ body {
   width: 24rem;
   z-index: 3;
   height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
   border-right: 1px solid #393c49;
+    transition: right 0.2s linear 0.2s;
+}
+
+.cart.cart-openedPayment {
+  right: 24rem;
 }
 
 .cart-back-button {
@@ -475,7 +488,7 @@ body {
 
 .cart-table-body {
   height: 470px;
-  overflow: auto;
+  overflow: hidden;
   border-top: 1px solid #393c49;
   border-bottom: 1px solid #393c49;
 }
@@ -623,7 +636,7 @@ body {
   width: 24rem;
   z-index: 2;
   height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
   border-radius: 10px 0 0 10px;
 }
 
@@ -867,7 +880,7 @@ body {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  overflow: hidden; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }

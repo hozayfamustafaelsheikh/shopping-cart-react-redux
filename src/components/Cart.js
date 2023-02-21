@@ -1,9 +1,8 @@
-function Cart() {
+function Cart(props) {
     return (
         <>
-
             {/* Cart */}
-            <div className="cart">
+            <div className={"cart " + (props.openPayment ? "cart-openedPayment" : "")}>
                 {/* Cart Order Number */}
                 <div className="cart-order-number">
                     <h1>Orders #34562</h1>
@@ -147,7 +146,7 @@ function Cart() {
                 </div>
                 {/* End of Cart table  */}
                 {/* Continue to Payment Button  */}
-                <button className="payment-btn" id="payment-btn">
+                <button className="payment-btn" id="payment-btn" onClick={() => props.setOpenPayment(true)}>
                     Continue to Payment
                 </button>
                 {/* End of Continue to Payment Button  */}

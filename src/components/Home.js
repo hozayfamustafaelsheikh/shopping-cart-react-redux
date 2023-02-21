@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 var items = [
     {
         id: 1,
@@ -147,7 +149,9 @@ var items = [
 
     },
 ];
+
 function Home() {
+    const [currentTab, setCurrentTab] = useState(1);
     return (
         <>
             {/* Page Content */}
@@ -186,7 +190,7 @@ function Home() {
                             {/* Home Page Tabs Header Item */}
                             {
                                 items.map((item, index) => (
-                                    <li key={item.id} className={"tab-item " + (index === 0 ? "active" : "") } data-tabname={item.id}>{item.category}</li>
+                                    <li key={item.id} className={"tab-item " + (item.id === currentTab ? "active" : "") } data-tabname={item.id} onClick={() => setCurrentTab(item.id)}>{item.category}</li>
                                 ))
                             }
                             {/* End of Home Page Tabs Header Item */}
@@ -200,7 +204,7 @@ function Home() {
                         {/* Home Page Tab Body */}
                         {
                             items.map((item_category, category_index) => (
-                                <div className={"tab-body " + item_category.id + (category_index === 0 ? " active" : "")} key={item_category.id}>
+                                <div className={"tab-body " + item_category.id + (item_category.id === currentTab ? " active" : "")} key={item_category.id}>
                                     {/* Home Page Tabs Body Header */}
                                     <div className="tab-body-header">
                                         {/* Home Page Tabs Body Header Title */}
@@ -224,7 +228,7 @@ function Home() {
                                         {/* Home Page Item */}
                                         {
                                             item_category.items.map((item, item_index) => (
-                                                <div className={"item " + (item_index === 0 ? " active" : "")} key={item.id}>
+                                                <div className="item" key={item.id}>
                                                     {/* Home Page Item Image */}
                                                     <div className="image">
                                                         <img src={require("../assets/img/" + item.image)} alt="" />

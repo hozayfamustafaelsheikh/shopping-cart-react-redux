@@ -1,7 +1,6 @@
-function Payment() {
+function Payment(props) {
     return (
         <>
-
             {/* payment */}
             <div className="payment">
                 {/* payment titles */}
@@ -115,7 +114,7 @@ function Payment() {
                 {/* payment Buttons  */}
                 <div className="d-f j-c-sb a-i-c g-1 mt-2">
                     {/* payment Button  */}
-                    <button className="payment-button" id="payment-button-cancel">
+                    <button className="payment-button" id="payment-button-cancel" onClick={() => props.setOpenPayment(false)}>
                         Cancel
                     </button>
                     {/* End of payment Button  */}
