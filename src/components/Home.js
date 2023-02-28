@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { addItem, increaseQty } from "../redux/slices/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 var items = [
     {
@@ -8,44 +10,56 @@ var items = [
             {
                 id: 1,
                 name: "Spicy seasoned seafood noodles",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-01.jpg",
+                qty: 1,
+                details: ""
             },
             {
                 id: 2,
                 name: "Salted Pasta with mushroom sauce",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-02.jpg",
+                qty: 1,
+                details: ""
             },
             {
                 id: 3,
                 name: "Beef dumpling in hot and sour soup",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-03.jpg",
+                qty: 1,
+                details: ""
             },
             {
                 id: 4,
                 name: "Healthy noodle with spinach leaf",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-04.jpg",
+                qty: 1,
+                details: ""
             },
             {
                 id: 5,
                 name: "Hot spicy fried rice with omelet",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-05.jpg",
+                qty: 1,
+                details: ""
             },
             {
                 id: 6,
                 name: "Spicy instant noodle with special omelette",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-06.jpg",
+                qty: 1,
+                details: ""
             },
         ],
 
@@ -55,46 +69,58 @@ var items = [
         category: "Cold Dishes",
         items: [
             {
-                id: 1,
+                id: 7,
                 name: "Healthy noodle with spinach leaf",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-04.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 2,
+                id: 8,
                 name: "Salted Pasta with mushroom sauce",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-02.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 3,
+                id: 9,
                 name: "Spicy seasoned seafood noodles",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-01.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 4,
+                id: 10,
                 name: "Spicy instant noodle with special omelette",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-06.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 5,
+                id: 11,
                 name: "Beef dumpling in hot and sour soup",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-03.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 6,
+                id: 12,
                 name: "Hot spicy fried rice with omelet",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-05.jpg",
+                qty: 1,
+                details: ""
             },
         ],
 
@@ -104,46 +130,58 @@ var items = [
         category: "Soup",
         items: [
             {
-                id: 1,
+                id: 13,
                 name: "Hot spicy fried rice with omelet",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-05.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 2,
+                id: 14,
                 name: "Salted Pasta with mushroom sauce",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-02.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 3,
+                id: 15,
                 name: "Healthy noodle with spinach leaf",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-04.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 4,
+                id: 16,
                 name: "Spicy instant noodle with special omelette",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-06.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 5,
+                id: 17,
                 name: "Spicy seasoned seafood noodles",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-01.jpg",
+                qty: 1,
+                details: ""
             },
             {
-                id: 6,
+                id: 18,
                 name: "Beef dumpling in hot and sour soup",
-                price: "$ 2.29",
+                price: 2.29,
                 avaliable: "20 Bowls available",
                 image: "item-03.jpg",
+                qty: 1,
+                details: ""
             },
         ],
 
@@ -152,6 +190,18 @@ var items = [
 
 function Home() {
     const [currentTab, setCurrentTab] = useState(1);
+    const { cart } = useSelector((state) => state);
+    const dispatch = useDispatch();
+
+    const addToCart = (item) => {
+        if (cart.some((p) => p.id === item.id)) {
+            dispatch(increaseQty(item.id));
+        }
+        else {
+            dispatch(addItem(item));
+        }
+    };
+
     return (
         <>
             {/* Page Content */}
@@ -190,7 +240,7 @@ function Home() {
                             {/* Home Page Tabs Header Item */}
                             {
                                 items.map((item, index) => (
-                                    <li key={item.id} className={"tab-item " + (item.id === currentTab ? "active" : "") } data-tabname={item.id} onClick={() => setCurrentTab(item.id)}>{item.category}</li>
+                                    <li key={item.id} className={"tab-item " + (item.id === currentTab ? "active" : "")} data-tabname={item.id} onClick={() => setCurrentTab(item.id)}>{item.category}</li>
                                 ))
                             }
                             {/* End of Home Page Tabs Header Item */}
@@ -228,7 +278,7 @@ function Home() {
                                         {/* Home Page Item */}
                                         {
                                             item_category.items.map((item, item_index) => (
-                                                <div className="item" key={item.id}>
+                                                <div className="item" key={item.id} >
                                                     {/* Home Page Item Image */}
                                                     <div className="image">
                                                         <img src={require("../assets/img/" + item.image)} alt="" />
@@ -241,6 +291,10 @@ function Home() {
                                                         <p>{item.avaliable}</p>
                                                     </div>
                                                     {/* End of Home Page Item Details */}
+
+                                                    <button className='main-button w-12' onClick={() => addToCart(item)}>
+                                                        <i className="fa-solid fa-cart-plus"></i>
+                                                    </button>
                                                 </div>
                                             ))
                                         }
