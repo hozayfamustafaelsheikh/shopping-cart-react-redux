@@ -1,11 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = [];
+const sessionStorageCart = JSON.parse(window.sessionStorage.getItem('MY_CART'));
+console.log(sessionStorageCart)
+let initialState = [];
+if (sessionStorageCart) {
+  initialState = sessionStorageCart;
+}
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    setCart(state, action) {
+      console.log(state)
+      state = action.payload;
+    },
     addItem(state, action) {
       console.log(state)
       state.push(action.payload);
@@ -49,5 +57,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, increaseQty, decreaseQty, setQty, setDetails } = cartSlice.actions;
+export const { addItem, removeItem, increaseQty, decreaseQty, setQty, setDetails, setCart } = cartSlice.actions;
 export default cartSlice.reducer;

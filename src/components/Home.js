@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { addItem, increaseQty } from "../redux/slices/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Message from './Message';
 
 var items = [
     {
@@ -193,17 +194,31 @@ function Home() {
     const { cart } = useSelector((state) => state);
     const dispatch = useDispatch();
 
+    const [message, setMessage] = useState(0);
+    const [showMessage, setShowMessage] = useState(0);
+
     const addToCart = (item) => {
         if (cart.some((p) => p.id === item.id)) {
             dispatch(increaseQty(item.id));
+            showMessageFunction("Item quantity updated successfully");
         }
         else {
             dispatch(addItem(item));
+            showMessageFunction("Item added to cart successfully");
         }
     };
 
+    const showMessageFunction = (messageString) => {
+        setShowMessage(true);
+        setMessage(messageString);
+        setTimeout(() => {
+            setShowMessage(false);
+        }, 1000);
+    }
+
     return (
         <>
+            <Message message={message} showMessage={showMessage} />
             {/* Page Content */}
             <div className="page">
                 {/* Page Header */}
@@ -289,12 +304,25 @@ function Home() {
                                                         <h1>{item.name}</h1>
                                                         <h3>{item.price}</h3>
                                                         <p>{item.avaliable}</p>
+
+                                                        {cart.some((p) => p.id === item.id) ? (
+                                                            <button className='btn-main btn-success' onClick={() => addToCart(item)}>
+                                                                <i className="fa-solid fa-cart-plus"></i>&nbsp;
+                                                                Increate quantity
+                                                            </button>
+                                                        ) :
+                                                            (
+                                                                <button className='btn-main' onClick={() => addToCart(item)}>
+                                                                    <i className="fa-solid fa-cart-plus"></i>&nbsp;
+                                                                    Add To Cart
+                                                                </button>
+                                                            )
+                                                        }
+
                                                     </div>
                                                     {/* End of Home Page Item Details */}
 
-                                                    <button className='main-button w-12' onClick={() => addToCart(item)}>
-                                                        <i className="fa-solid fa-cart-plus"></i>
-                                                    </button>
+
                                                 </div>
                                             ))
                                         }

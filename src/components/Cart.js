@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeItem, setQty, setDetails } from "../redux/slices/cartSlice";
+import { removeItem, setQty, setDetails, setCart } from "../redux/slices/cartSlice";
+import Message from "./Message";
 
 function Cart(props) {
     const [total, setTotal] = useState(0);
@@ -8,35 +9,54 @@ function Cart(props) {
     const [totalWithDiscount, setTotalWithDiscount] = useState(0);
     const { cart } = useSelector((state) => state);
     const dispatch = useDispatch();
+    const [message, setMessage] = useState(0);
+    const [showMessage, setShowMessage] = useState(0);
 
     useEffect(() => {
+        window.sessionStorage.setItem('MY_CART', JSON.stringify(cart));
         console.log(cart)
         let sub_total = cart.map(item => item.price * item.qty).reduce((acc, curr) => acc + curr, 0);
         setTotal(sub_total);
-        let final_total =  sub_total - discount;
+        let final_total = sub_total - discount;
         setTotalWithDiscount(final_total);
     }, [cart]);
 
     const removeFromCart = (item) => {
         dispatch(removeItem(item.id));
+        showMessageFunction("Item removed successfully");
     };
 
     const changeQty = (e, item) => {
         dispatch(setQty({ id: item.id, qty: e.target.value }));
+        showMessageFunction("Item quantity updated successfully");
     };
 
     const changeDetails = (e, item) => {
         dispatch(setDetails({ id: item.id, details: e.target.value }));
+        showMessageFunction("Item details updated successfully");
     };
 
-    const setDiscountAndTotal= (value) => {
+    const setDiscountAndTotal = (value) => {
         setDiscount(value);
-        let final_total =  total - value;
+        let final_total = total - value;
         setTotalWithDiscount(final_total);
+        showMessageFunction("Discount added successfully");
+    }
+
+    const showMessageFunction = (messageString) => {
+        setShowMessage(true);
+        setMessage(messageString);
+        setTimeout(() => {
+            setShowMessage(false);
+        }, 1000);
     }
 
     return (
         <div className={"cart " + (props.openPayment ? "cart-openedPayment" : "")}>
+            {/* {
+                showMessage && ( */}
+            <Message message={message} showMessage={showMessage} />
+
             {cart.length > 0 ? (
                 <>
                     {/* Cart */}
