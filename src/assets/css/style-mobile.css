@@ -5,10 +5,13 @@
 
   .cart {
     display: none;
+    padding: 2rem 1rem;
+    width: 100%;
+    left: 0;
   }
 
   .payment {
-    display: none ;
+    display: none;
   }
 
   .menu-list-item-icon {
