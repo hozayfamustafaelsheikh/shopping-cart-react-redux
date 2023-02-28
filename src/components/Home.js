@@ -218,7 +218,9 @@ function Home() {
 
     return (
         <>
+            {/* start popup message */}
             <Message message={message} showMessage={showMessage} />
+            {/* end start popup message */}
             {/* Page Content */}
             <div className="page">
                 {/* Page Header */}
