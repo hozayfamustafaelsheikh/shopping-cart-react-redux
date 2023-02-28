@@ -20,6 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://hozayfaelsh.000webhostapp.com/reactjs-redux-shopping-cart",
   "eslintConfig": {
     "extends": [
       "react-app",
