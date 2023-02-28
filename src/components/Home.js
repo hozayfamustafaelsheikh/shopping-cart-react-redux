@@ -222,7 +222,7 @@ function Home(props) {
                 {
                     props.openCart ? (
                         <>
-                            <i class="fa-solid fa-basket-shopping"></i>
+                            <i className="fa-solid fa-basket-shopping"></i>
                         </>
                     ) : (
                         <>

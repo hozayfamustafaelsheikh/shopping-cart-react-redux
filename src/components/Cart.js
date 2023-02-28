@@ -52,7 +52,7 @@ function Cart(props) {
     }
 
     return (
-        <div className={"cart " + (props.openPayment ? "cart-openedPayment" : "") + ((props.openCart) ? "d-block" : "d-none")}>
+        <div className={"cart " + (props.openPayment ? "cart-openedPayment" : "") + ((props.openCart) ? "d-block" : "")}>
             {/* start popup message */}
             <Message message={message} showMessage={showMessage} />
             {/* end start popup message */}

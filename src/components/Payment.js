@@ -2,7 +2,7 @@ function Payment(props) {
     return (
         <>
             {/* payment */}
-            <div className={"payment " + (props.openPayment ? "d-block" : "d-none")}>
+            <div className={"payment " + (props.openPayment ? "d-block" : "")}>
                 {/* payment titles */}
                 <div className="payment-titles">
                     <h1>Payment</h1>
