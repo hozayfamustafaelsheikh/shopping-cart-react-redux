@@ -459,6 +459,9 @@ body {
 /* End of Home Page */
 
 /* Cart */
+.btn-cart {
+  display: none;
+}
 
 .cart {
   /* position: relative; */

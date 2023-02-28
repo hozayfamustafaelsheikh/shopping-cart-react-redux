@@ -189,7 +189,7 @@ var items = [
     },
 ];
 
-function Home() {
+function Home(props) {
     const [currentTab, setCurrentTab] = useState(1);
     const { cart } = useSelector((state) => state);
     const dispatch = useDispatch();
@@ -218,6 +218,20 @@ function Home() {
 
     return (
         <>
+            <button className='btn-main btn-cart' onClick={() => {props.setOpenCart(!props.openCart); props.setOpenPayment(false)}}>
+                {
+                    props.openCart ? (
+                        <>
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </>
+                    ) : (
+                        <>
+                            <span>{cart.length}</span>
+                            <i className="fa-solid fa-cart-shopping"></i>
+                        </>
+                    )
+                }
+            </button>
             {/* start popup message */}
             <Message message={message} showMessage={showMessage} />
             {/* end start popup message */}

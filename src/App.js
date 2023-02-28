@@ -7,12 +7,13 @@ import React, { useState, useEffect } from 'react';
 
 function App() {
   const [openPayment, setOpenPayment] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
   return (
     // Main
     <div className="main">
       <Menu />
-      <Home />
-      <Cart setOpenPayment={setOpenPayment} openPayment={openPayment} />
+      <Home setOpenCart={setOpenCart} openCart={openCart} setOpenPayment={setOpenPayment} openPayment={openPayment} />
+      <Cart setOpenPayment={setOpenPayment} openPayment={openPayment} setOpenCart={setOpenCart} openCart={openCart}/>
       <Payment setOpenPayment={setOpenPayment} openPayment={openPayment} />
       {/*  The Modal  */}
       <div id="myModal" className={"modal " + (openPayment ? "d-block" : "d-none")}>

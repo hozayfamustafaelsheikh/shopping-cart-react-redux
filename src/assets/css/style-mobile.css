@@ -1,0 +1,159 @@
+@media only screen and (max-width: 768px) {
+  .main {
+    grid-template-columns: 3rem auto !important;
+  }
+
+  .cart {
+    display: none;
+  }
+
+  .payment {
+    display: none ;
+  }
+
+  .menu-list-item-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+  }
+
+  .menu-list-item-icon-first {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 23px;
+  }
+
+  .menu-list-item {
+    padding: 0.7rem 1.2rem 0.7rem 1.3rem;
+  }
+
+  .menu-list-item.active .menu-list-item-icon {
+    box-shadow: 1px 1px 5px 2px #ea7c6999;
+  }
+
+  .material-symbols-rounded {
+    font-size: 23px;
+  }
+
+  .header-title h1 {
+    font-size: 16px;
+  }
+
+  .header-title h3 {
+    font-size: 14px;
+  }
+
+  /* .page-header {
+    justify-content: unset !important;
+  } */
+
+  .search {
+    padding: 9px;
+    width: 95px;
+  }
+
+  .search i {
+    margin-right: 6px;
+    font-size: 14px;
+  }
+
+  .search input {
+    font-size: 14px;
+  }
+
+  .tabs-items .tab-item {
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .tab-body-header .tab-body-title h1 {
+    font-size: 1rem;
+  }
+
+  .tab-body-header .tab-body-select select {
+    width: 95px;
+    padding: 9px 11px 11px 39px;
+  }
+
+  .tab-body-header .tab-body-select::after {
+    top: 25%;
+    left: 13px;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+  }
+
+  .tab-body {
+    overflow: scroll;
+    height: 83vh;
+  }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    margin-bottom: 75px;
+  }
+
+  .btn-cart {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    width: 40px;
+    height: 40px;
+    opacity: 0.5;
+    z-index: 6000;
+  }
+
+  .btn-cart:hover {
+    opacity: 1;
+  }
+
+  .btn-cart span {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #ea7c69;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* .item {
+    height: 100px;
+  }
+
+  .item .image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .item .details h1 {
+    font-size: 8px;
+    width: 80px;
+  }
+
+  .item .details h3 {
+    font-size: 7px;
+  }
+
+  .item .details p {
+    font-size: 6px;
+  }
+
+  .btn-main {
+    font-size: 8px;
+  }
+
+  .item .details {
+    transform: translate(-50%, 35%);
+    width: 100%;
+  } */
+}
